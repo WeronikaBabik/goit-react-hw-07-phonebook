@@ -1,0 +1,11 @@
+.listOfContacts {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  padding: 10px;
+  background-color: #44b0ee;
+  border: 1px solid #00095bb3;
+  border-radius: 5px;
+}

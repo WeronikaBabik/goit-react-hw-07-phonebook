@@ -1,16 +1,21 @@
+import { useSelector } from 'react-redux';
+import ContactForm from './ContactForm/ContactForm';
+import ContactList from './ContactList/ContactList';
+import Filter from './Filter/Filter';
+import { Layout } from './Layout/Layout';
+import { selectError, selectIsLoading } from 'Redux/selectors';
+
 export const App = () => {
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Layout>
+      <ContactForm />
+      <Filter />
+      {isLoading && !error && <p>Data fetch ...</p>}
+      {error && <p>{error}</p>}
+      <ContactList />
+    </Layout>
   );
 };
